@@ -1,0 +1,21 @@
+[gd_scene format=2]
+
+[node name="Cursor" type="Node2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+
+animation = "default"
+
+[node name="Area2D" type="Area2D" parent="." index="1"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+
+

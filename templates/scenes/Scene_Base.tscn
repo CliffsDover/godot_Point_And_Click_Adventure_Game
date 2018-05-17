@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://templates/scenes/Scene_Base.gd" type="Script" id=1]
+
+[node name="Root" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+
+
