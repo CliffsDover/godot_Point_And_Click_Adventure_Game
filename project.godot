@@ -13,6 +13,10 @@ config_version=3
 config/name="Point And Click Adventure Game"
 config/icon="res://icon.png"
 
+[autoload]
+
+Game="*res://scripts/Game.gd"
+
 [importer_defaults]
 
 texture={
