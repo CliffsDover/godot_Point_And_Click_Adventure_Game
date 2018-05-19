@@ -20,8 +20,6 @@ extents = Vector2( 30.1062, 30.1045 )
 [node name="Object" instance=ExtResource( 1 )]
 
 objectName = "Simple Object"
-objectDescription = "This is a simple object"
-verb = 1
 
 [node name="AnimatedSprite" parent="." index="0"]
 

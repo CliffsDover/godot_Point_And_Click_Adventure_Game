@@ -11,13 +11,16 @@ func _ready():
 	set_process_input( true )
 	set_process( true )
 	Input.set_mouse_mode( Input.MOUSE_MODE_HIDDEN )
-	#add_child( Cursor )
-	#print( Game.GetAllVerbs() )
-	#$Cursor/Area2D.connect( "area_entered", self, "on_Cursor_area_entered" )
-
+	$HUD/Cursor/Area2D.connect( "area_entered", self, "on_Cursor_area_entered" )
+	$HUD/Cursor/Area2D.connect( "area_exited", self, "on_Cursor_area_exited" )
+	
 func _process(delta):
-	$Cursor.position = get_global_mouse_position()
+	$HUD/Cursor.position = get_global_mouse_position()
 	
 	
 func on_Cursor_area_entered( area ):
 	print( "Current object: " + area.get_parent().objectName )
+	
+func on_Cursor_area_exited( area ):
+	print( "Current object: null" )
+
