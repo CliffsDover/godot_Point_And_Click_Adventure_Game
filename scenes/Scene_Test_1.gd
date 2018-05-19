@@ -9,9 +9,5 @@ extends "res://templates/scenes/Scene_Base.gd"
 func _ready():
 	print( "[Scene_Test_1] _ready")
 	print( Game.GetAllVerbs() )
-	$Cursor/Area2D.connect( "area_entered", self, "on_Cursor_area_entered" )
-
-func _process(delta):
-	pass
-	#$Cursor.position = get_global_mouse_position()
+	
 
