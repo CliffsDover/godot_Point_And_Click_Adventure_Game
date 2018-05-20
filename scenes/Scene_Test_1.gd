@@ -6,8 +6,16 @@ extends "res://templates/scenes/Scene_Base.gd"
 #onready var Game = get_node("/root/Game" )
 #onready var Cursor = preload( "res://templates/scenes/Cursor_Crosshair.tscn" ).instance()
 
+
 func _ready():
-	print( "[Scene_Test_1] _ready")
-	print( Game.GetAllVerbs() )
+	pass
+	#print( "[Scene_Test_1] _ready")
+	#print( Game.GetAllVerbs() )
+	#set_process_input( true )
 	
+func ActionHandler( objects ):
+	print( "[ActionHandler]" )
+	print( objects[0] )
+	print( objects[1] )
+
 

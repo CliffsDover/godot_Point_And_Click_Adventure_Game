@@ -23,10 +23,11 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 56.1315, 59.5116 )
 
-[node name="ActionMenuItem" instance=ExtResource( 1 )]
+[node name="ActionMenuItem" index="0" instance=ExtResource( 1 )]
 
+modulate = Color( 1, 1, 1, 0.752941 )
+_sections_unfolded = [ "Transform", "Visibility" ]
 actionName = "Take"
-focusedScale = 1.1
 
 [node name="AnimatedSprite" parent="." index="0"]
 
