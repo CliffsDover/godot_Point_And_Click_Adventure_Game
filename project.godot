@@ -18,6 +18,10 @@ config/icon="res://icon.png"
 
 Game="*res://scripts/Game.gd"
 
+[display]
+
+window/size/height=576
+
 [importer_defaults]
 
 texture={

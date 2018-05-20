@@ -19,3 +19,6 @@ func ActionHandler( objects ):
 	print( objects[1] )
 
 
+func CursorClickedAt( pos ):
+	print( "[CursorClickedAt]" )
+	print( pos )

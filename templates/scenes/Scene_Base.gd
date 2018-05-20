@@ -38,6 +38,8 @@ func _input(event):
 				$HUD/ActionMenu.position = get_global_mouse_position()
 				$HUD/ActionMenu.visible = true
 				$HUD/ActionMenu.focusedAction = null
+		else:
+			CursorClickedAt( get_global_mouse_position() )
 	
 	
 func on_Cursor_area_entered( area ):
@@ -50,5 +52,8 @@ func on_Cursor_area_exited( area ):
 		focusedObject = null
 		
 func ActionHandler( objects ):
+	pass
+	
+func CursorClickedAt( pos ):
 	pass
 
