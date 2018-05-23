@@ -14,6 +14,8 @@ func _ready():
 	Input.set_mouse_mode( Input.MOUSE_MODE_HIDDEN )
 	$HUD/Cursor/Area2D.connect( "area_entered", self, "on_Cursor_area_entered" )
 	$HUD/Cursor/Area2D.connect( "area_exited", self, "on_Cursor_area_exited" )
+	#$HUD/ActionMenu.Hide()
+	print( $HUD/ActionMenu/ActionMenuItem_LookAt.position ) 
 	
 func _process(delta):
 	$HUD/Cursor.position = get_global_mouse_position()
@@ -25,35 +27,53 @@ func _input(event):
 				if $HUD/ActionMenu.focusedAction:
 					# trigger event
 					ActionHandler( [ $HUD/ActionMenu.focusedAction, focusedObject.objectName ] )
-					$HUD/ActionMenu.visible = false
+					$HUD/ActionMenu.Hide()			
 				else:
 					# action canceled
-					$HUD/ActionMenu.visible = false
+					$HUD/ActionMenu.Hide()
 					
 				# check if cursor is still overlapping object	
-				if not focusedObject.get_node( "Area2D" ).overlaps_area( $HUD/Cursor/Area2D ):
-					print( "Set current object to null" )
+				if focusedObject.get_node( "Area2D" ).overlaps_area( $HUD/Cursor/Area2D ):
+					SetInfoText( focusedObject.objectName )
+				else:
+					#print( "Set current object to null" )
 					focusedObject = null
+					ShowInfoBar( false )
 			else: # show action menu
 				$HUD/ActionMenu.position = get_global_mouse_position()
-				$HUD/ActionMenu.visible = true
+				#$HUD/ActionMenu.visible = true
 				$HUD/ActionMenu.focusedAction = null
+				$HUD/ActionMenu.Show()
 		else:
 			CursorClickedAt( get_global_mouse_position() )
 	
 	
 func on_Cursor_area_entered( area ):
-	print( "Current object: " + area.get_parent().objectName )
-	focusedObject = area.get_parent()
+	if $HUD.has_node( "ActionMenu" ) and not $HUD/ActionMenu.visible:
+		print( "Current object: " + area.get_parent().name )
+		focusedObject = area.get_parent()
+		if not IsInfoBarShown():
+			SetInfoText( focusedObject.objectName )
+			ShowInfoBar( true )
+		#SetInfoText( area.get_parent().objectName )
 	
 func on_Cursor_area_exited( area ):
 	if $HUD.has_node( "ActionMenu" ) and not $HUD/ActionMenu.visible:
 		print( "Current object: null" )
 		focusedObject = null
+		ShowInfoBar( false )
 		
 func ActionHandler( objects ):
 	pass
 	
 func CursorClickedAt( pos ):
 	pass
+	
+func SetInfoText( text ):
+	$HUD/InfoBar/CenterContainer/InfoText.text = text
 
+func ShowInfoBar( isVisible ):
+	$HUD/InfoBar.visible = isVisible
+	
+func IsInfoBarShown():
+	return $HUD/InfoBar.visible 
