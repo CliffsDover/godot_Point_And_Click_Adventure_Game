@@ -10,7 +10,7 @@
 
 [node name="ActionMenuItem_Take" parent="." index="1" instance=ExtResource( 3 )]
 
-position = Vector2( 130, 0 )
+position = Vector2( 160, 0 )
 
 [connection signal="signal_mouseEnteredActionMenuItem" from="ActionMenuItem_LookAt" to="." method="_on_mouseEnteredActionMenuItem"]
 
