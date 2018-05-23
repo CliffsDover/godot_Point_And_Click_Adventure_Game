@@ -21,6 +21,8 @@ Game="*res://scripts/Game.gd"
 [display]
 
 window/size/height=576
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [importer_defaults]
 
