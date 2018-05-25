@@ -20,9 +20,14 @@ Game="*res://scripts/Game.gd"
 
 [display]
 
-window/size/height=576
+window/size/width=256
+window/size/height=144
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "GodotTIE" )
 
 [importer_defaults]
 

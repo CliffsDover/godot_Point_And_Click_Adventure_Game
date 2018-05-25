@@ -8,6 +8,7 @@ extends "res://templates/scenes/Scene_Base.gd"
 var path = []
 
 
+
 func _ready():
 	#ShowInfoBar( false )
 	SetInfoText( "Scene 1" )
@@ -16,22 +17,15 @@ func _ready():
 	#print( Game.GetAllVerbs() )
 	#set_process_input( true )
 	
+	
 func ActionHandler( objects ):
 	print( "[ActionHandler]" )
 	print( objects[0] )
 	print( objects[1] )
 	if objects[0] == "Look At" and objects[1] == "Simple Object":
-		var stream = load( "res://resources/audio/Player_2.ogg" )
-		stream.loop = false
-		#stream.resource_path = 
-		$AudioStreamPlayer.stream = stream
-		$AudioStreamPlayer.play( 0 )
+		$Objects/Player.Say( "這是個有趣的東西", 0.01, Color( 0, 0, 0, 0.8 ), "res://resources/audio/Player_2.ogg" )
 	elif objects[0] == "Look At" and objects[1] == "Key":
-		var stream = load( "res://resources/audio/Player_3.ogg" )
-		stream.loop = false
-		#stream.resource_path = 
-		$AudioStreamPlayer.stream = stream
-		$AudioStreamPlayer.play( 0 )
+		$Objects/Player.Say( "某種有用的東東", 0.01, Color( 0, 0, 0, 0.8 ), "res://resources/audio/Player_3.ogg" )
 
 	
 
@@ -69,3 +63,4 @@ func _draw():
 	for p in path:
 		draw_circle( p, 3, Color(1,0,0,1) )
 		
+
