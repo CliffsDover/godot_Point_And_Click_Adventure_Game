@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/CrashedShip_0.ogg-3f9b519684440b597495a82c29749c92.oggstr"
+
+[deps]
+
+source_file="res://resources/audio/CrashedShip_0.ogg"
+source_md5="721e00836c13399a98314157bb9226d8"
+
+dest_files=[ "res://.import/CrashedShip_0.ogg-3f9b519684440b597495a82c29749c92.oggstr" ]
+dest_md5="ca3c8b8ebb99d1e10947b443a471a6ec"
+
+[params]
+
+loop=true
+loop_offset=0

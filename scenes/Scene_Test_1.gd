@@ -20,6 +20,20 @@ func ActionHandler( objects ):
 	print( "[ActionHandler]" )
 	print( objects[0] )
 	print( objects[1] )
+	if objects[0] == "Look At" and objects[1] == "Simple Object":
+		var stream = load( "res://resources/audio/Player_2.ogg" )
+		stream.loop = false
+		#stream.resource_path = 
+		$AudioStreamPlayer.stream = stream
+		$AudioStreamPlayer.play( 0 )
+	elif objects[0] == "Look At" and objects[1] == "Key":
+		var stream = load( "res://resources/audio/Player_3.ogg" )
+		stream.loop = false
+		#stream.resource_path = 
+		$AudioStreamPlayer.stream = stream
+		$AudioStreamPlayer.play( 0 )
+
+	
 
 
 func CursorClickedAt( pos ):
