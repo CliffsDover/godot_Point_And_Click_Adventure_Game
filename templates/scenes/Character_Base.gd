@@ -17,6 +17,7 @@ enum FACING {
 var path = []
 var nav2D = null
 var tie
+var voices = {}
 #onready var tie = get_node("TextInterfaceEngine")
 
 func _ready():
@@ -78,25 +79,63 @@ func GetCurrentHeading( lookVector ):
 		return FACING.WEST
 		
 
-func Say( text, speed, color, voiceFilePath ):
-	var stream = load( voiceFilePath )
-	stream.loop = false
-	$AudioStreamPlayer.stream = stream
-	$AudioStreamPlayer.play( 0 )
+func Say( text, speed, voiceFilePath = null):
+	var tag = str( text.hash() )
+	if voiceFilePath:
+		print( tag )
+		voices[ tag ] = voiceFilePath
+		
+	tie.buff_text( text, speed, tag )
 	
-	if tie:
-		owner.RemoveDialogBox( tie )
-			
-	tie = owner.GetDialogBox( get_node( "." ).get_global_position() )
+	
+func Silence( durationSec ):
+	tie.buff_silence( durationSec )
+
+func ClearDialogBox():
+	tie.buff_clear()	
+
+func BeginDialog( color ):
+	if tie == null:		
+		tie = owner.GetDialogBox( get_node( "." ).get_global_position() )
+		tie.connect("input_enter", self, "_on_input_enter")
+		tie.connect("buff_end", self, "_on_buff_end")
+		tie.connect("state_change", self, "_on_state_change")
+		tie.connect("enter_break", self, "_on_enter_break")
+		tie.connect("resume_break", self, "_on_resume_break")
+		tie.connect("tag_buff", self, "_on_tag_buff")
+		tie.reset()
+		tie.set_color( color )
+
+	voices = {}
 	print( tie )
-	#tie.rect_position = Vector2( 100, 100 )
-	#tie.rect_size = Vector2( 200, 100 )
-	tie.reset()
-	tie.set_color( color )
-	# Buff text: "Text", duration (in seconds) of each letter
-	tie.buff_text( text, speed )
+	
+func EndDialog():
 	tie.set_state(tie.STATE_OUTPUT)
 	
 	
-	
-	
+func _on_buff_end():
+	print("Buff End")
+	owner.RemoveDialogBox( tie )
+	tie = null
+	pass
+
+func _on_state_change(i):
+	print("New state: ", i)
+	pass
+
+func _on_enter_break():
+	print("Enter Break")
+	pass
+
+func _on_resume_break():
+	print("Resume Break")
+	pass
+
+func _on_tag_buff(s):
+	print("Tag Buff ",s)
+	if voices.has( s ):
+		var stream = load( voices[ s ]  )
+		stream.loop = false
+		$AudioStreamPlayer.stream = stream
+		$AudioStreamPlayer.play( 0 )
+	pass

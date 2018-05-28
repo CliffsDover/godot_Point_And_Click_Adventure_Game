@@ -29,10 +29,6 @@ _sections_unfolded = [ "Font", "Settings" ]
 stream = ExtResource( 2 )
 autoplay = true
 
-[node name="Backgrounds" parent="." index="2"]
-
-editor/display_folded = true
-
 [node name="Sprite" type="Sprite" parent="Backgrounds" index="0"]
 
 position = Vector2( 511.721, 288.031 )
