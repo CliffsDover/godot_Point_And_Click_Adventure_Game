@@ -23,9 +23,9 @@ func ActionHandler( objects ):
 	print( objects[0] )
 	print( objects[1] )
 	if objects[0] == "Look At" and objects[1] == "Simple Object":
-		$Objects/Player.Say( "這是個有趣的東西", 0.01, Color( 0, 0, 0, 0.8 ), "res://resources/audio/Player_2.ogg" )
+		$Objects/Player.Say( "It is an interesting object", 0.01, Color( 1, 0, 0, 0.8 ), "res://resources/audio/Player_2.ogg" )
 	elif objects[0] == "Look At" and objects[1] == "Key":
-		$Objects/Player.Say( "某種有用的東東", 0.01, Color( 0, 0, 0, 0.8 ), "res://resources/audio/Player_3.ogg" )
+		$Objects/Player.Say( "某種有用的東東", 0.01, Color( 0, 0, 1, 0.8 ), "res://resources/audio/Player_3.ogg" )
 
 	
 

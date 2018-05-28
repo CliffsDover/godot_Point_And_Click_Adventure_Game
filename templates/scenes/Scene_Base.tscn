@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/Scene_Test_1.gd" type="Script" id=1]
-[ext_resource path="res://scenes/Cursor_Crosshair.tscn" type="PackedScene" id=2]
+[ext_resource path="res://addons/GodotTIE/text_interface_engine.gd" type="Script" id=2]
+[ext_resource path="res://addons/GodotTIE/GodotTIE_icon.png" type="Texture" id=3]
+[ext_resource path="res://scenes/Cursor_Crosshair.tscn" type="PackedScene" id=4]
 
 [node name="Root" type="Node2D"]
 
@@ -29,9 +31,40 @@ bus = "Master"
 
 [node name="HUD" type="Node2D" parent="." index="4"]
 
-[node name="Cursor" parent="HUD" index="0" instance=ExtResource( 2 )]
+[node name="Dialogs" type="Node2D" parent="HUD" index="0"]
 
-[node name="InfoBar" type="ColorRect" parent="HUD" index="1"]
+[node name="TextInterfaceEngine" type="ReferenceRect" parent="HUD/Dialogs" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 2 )
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_editor_icon": ExtResource( 3 )
+}
+SCROLL_ON_MAX_LINES = true
+BREAK_ON_MAX_LINES = true
+AUTO_SKIP_WORDS = true
+LOG_SKIPPED_LINES = true
+SCROLL_SKIPPED_LINES = false
+FONT = null
+PRINT_INPUT = true
+BLINKING_INPUT = true
+INPUT_CHARACTERS_LIMIT = -1
+
+[node name="Cursor" parent="HUD" index="1" instance=ExtResource( 4 )]
+
+[node name="InfoBar" type="ColorRect" parent="HUD" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0

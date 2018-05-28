@@ -20,8 +20,7 @@ Game="*res://scripts/Game.gd"
 
 [display]
 
-window/size/width=256
-window/size/height=144
+window/size/height=576
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 

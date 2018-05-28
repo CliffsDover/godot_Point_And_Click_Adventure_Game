@@ -7,6 +7,8 @@ onready var Game = get_node("/root/Game" )
 #onready var Cursor = preload( "res://templates/scenes/Cursor_Crosshair.tscn" ).instance()
 var focusedObject
 
+onready var TextInterfaceEngine = $HUD/Dialogs/TextInterfaceEngine
+
 func _ready():
 	print( "[Scene_Base] _ready")
 	set_process_input( true )
@@ -77,3 +79,15 @@ func ShowInfoBar( isVisible ):
 	
 func IsInfoBarShown():
 	return $HUD/InfoBar.visible 
+	
+func GetDialogBox( pos ):
+	var tie = TextInterfaceEngine.duplicate()
+	print( tie )
+	tie.rect_position = pos
+	tie.rect_size = Vector2( 1024, 64 )
+	$HUD/Dialogs.add_child( tie )
+	return tie
+	
+func RemoveDialogBox( tie ):
+	$HUD/Dialogs.remove_child( tie )
+	tie.queue_free() 
