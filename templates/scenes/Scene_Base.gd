@@ -28,7 +28,7 @@ func _input(event):
 			if $HUD/ActionMenu.visible:
 				if $HUD/ActionMenu.focusedAction:
 					# trigger event
-					ActionHandler( [ $HUD/ActionMenu.focusedAction, focusedObject.objectName ] )
+					ActionHandler( [ $HUD/ActionMenu.focusedAction, focusedObject.name ] )
 					$HUD/ActionMenu.Hide()			
 				else:
 					# action canceled

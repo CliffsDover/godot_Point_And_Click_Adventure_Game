@@ -22,7 +22,7 @@ func ActionHandler( objects ):
 	print( "[ActionHandler]" )
 	print( objects[0] )
 	print( objects[1] )
-	if objects[0] == "Look At" and objects[1] == "Simple Object":
+	if objects[0] == "Look At" and objects[1] == "Object":
 		$Objects/Player.BeginDialog( Color( 1, 1, 1, 0.8 ) )
 		$Objects/Player.Say( "這是個有趣的東西", 0.05, "res://resources/audio/Player_2.ogg" )
 		$Objects/Player.Silence( 3 )

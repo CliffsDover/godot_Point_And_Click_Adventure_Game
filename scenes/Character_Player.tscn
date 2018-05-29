@@ -136,7 +136,7 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Resource", "Settings" ]
 
-[node name="Object" index="0" instance=ExtResource( 1 )]
+[node name="Object" instance=ExtResource( 1 )]
 
 [node name="Sprite" parent="." index="1"]
 
