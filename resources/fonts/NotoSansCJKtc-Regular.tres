@@ -1,0 +1,7 @@
+[gd_resource type="DynamicFontData" format=2]
+
+[resource]
+
+font_path = "res://resources/fonts/NotoSansCJKtc-Regular.otf"
+_sections_unfolded = [ "Resource" ]
+

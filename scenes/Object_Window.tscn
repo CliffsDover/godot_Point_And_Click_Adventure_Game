@@ -8,7 +8,7 @@ custom_solver_bias = 0.0
 radius = 54.0746
 height = 20.0
 
-[node name="Object" index="0" instance=ExtResource( 1 )]
+[node name="Object" instance=ExtResource( 1 )]
 
 [node name="Area2D" parent="." index="1"]
 

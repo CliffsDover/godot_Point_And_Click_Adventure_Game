@@ -45,6 +45,8 @@ func ActionHandler( objects ):
 		$Objects/Player.ClearDialogBox()
 		
 		$Objects/Player.EndDialog()
+	elif objects[0] == "Look At" and objects[1] == "Window":
+		$Objects/Player.WalkTo( $Objects/Window.position )	
 
 	
 

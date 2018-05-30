@@ -17,7 +17,7 @@ func _ready():
 	$HUD/Cursor/Area2D.connect( "area_entered", self, "on_Cursor_area_entered" )
 	$HUD/Cursor/Area2D.connect( "area_exited", self, "on_Cursor_area_exited" )
 	#$HUD/ActionMenu.Hide()
-	print( $HUD/ActionMenu/ActionMenuItem_LookAt.position ) 
+	#print( $HUD/ActionMenu/ActionMenuItem_LookAt.position ) 
 	
 func _process(delta):
 	$HUD/Cursor.position = get_global_mouse_position()
