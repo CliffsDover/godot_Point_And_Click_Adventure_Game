@@ -43,11 +43,18 @@ func _on_mouseExitedActionMenuItem(actionName):
 	#	owner.SetInfoText( owner.focusedObject.objectName ) 
 	#focusedAction = null
 	
-func Show():
+func Show( verbs ):
+	print( verbs )
 	set_process( true )
 	for item in get_children():
+		print( item )
 		item.visible = true
 		item.get_node( "Area2D" ).monitorable = true
+		
+	for item in get_children():
+		if not verbs.has( item.actionName ):
+			print( item.actionName + " is disabled" )
+				
 	visible = true
 	
 func Hide():

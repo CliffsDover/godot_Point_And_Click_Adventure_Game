@@ -46,7 +46,8 @@ func ActionHandler( objects ):
 		
 		$Objects/Player.EndDialog()
 	elif objects[0] == "Look At" and objects[1] == "Window":
-		$Objects/Player.WalkTo( $Objects/Window.position )	
+		#$Objects/Player.WalkTo( $Objects/Window.position )	
+		get_tree().change_scene( "res://scenes/Scene_Hallway.tscn" )
 
 	
 

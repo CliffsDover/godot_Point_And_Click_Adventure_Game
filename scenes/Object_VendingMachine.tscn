@@ -1,16 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://templates/scenes/Object_Base.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/Object_DirtyCloth.gd" type="Script" id=2]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 30.7152
+extents = Vector2( 96.2044, 178.005 )
 
 [node name="Object" instance=ExtResource( 1 )]
-
-script = ExtResource( 2 )
 
 [node name="Area2D" parent="." index="1"]
 
@@ -21,6 +18,5 @@ _sections_unfolded = [ "Collision" ]
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 
 shape = SubResource( 1 )
-_sections_unfolded = [ "Z Index" ]
 
 

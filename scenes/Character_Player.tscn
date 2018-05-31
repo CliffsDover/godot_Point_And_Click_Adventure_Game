@@ -140,6 +140,7 @@ _sections_unfolded = [ "Font", "Resource", "Settings" ]
 
 [node name="Sprite" parent="." index="1"]
 
+visible = false
 position = Vector2( 0, -42 )
 texture = ExtResource( 2 )
 vframes = 3

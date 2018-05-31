@@ -42,10 +42,11 @@ func _input(event):
 					focusedObject = null
 					ShowInfoBar( false )
 			else: # show action menu
+				var verbs = focusedObject.getAvailableVerbs()
 				$HUD/ActionMenu.position = get_global_mouse_position()
 				#$HUD/ActionMenu.visible = true
 				$HUD/ActionMenu.focusedAction = null
-				$HUD/ActionMenu.Show()
+				$HUD/ActionMenu.Show( verbs )
 		else:
 			CursorClickedAt( get_global_mouse_position() )
 	

@@ -42,6 +42,7 @@ autoplay = true
 
 [node name="Sprite" type="Sprite" parent="Backgrounds" index="0"]
 
+visible = false
 position = Vector2( 511.721, 288.031 )
 scale = Vector2( 0.533624, 0.533623 )
 texture = ExtResource( 3 )
@@ -81,7 +82,6 @@ objectName = "觀景窗"
 
 [node name="ActionMenu" parent="HUD" index="0" instance=ExtResource( 8 )]
 
-visible = false
 _sections_unfolded = [ "Visibility" ]
 
 [node name="TextInterfaceEngine" parent="HUD/Dialogs" index="0"]
