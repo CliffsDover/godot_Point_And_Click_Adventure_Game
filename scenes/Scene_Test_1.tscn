@@ -33,7 +33,7 @@ use_filter = false
 font_data = ExtResource( 10 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Root" instance=ExtResource( 1 )]
+[node name="Root" index="0" instance=ExtResource( 1 )]
 
 [node name="BGMPlayer" parent="." index="0"]
 
@@ -42,7 +42,6 @@ autoplay = true
 
 [node name="Sprite" type="Sprite" parent="Backgrounds" index="0"]
 
-visible = false
 position = Vector2( 511.721, 288.031 )
 scale = Vector2( 0.533624, 0.533623 )
 texture = ExtResource( 3 )
