@@ -6,17 +6,22 @@
 
 animations = [ {
 "frames": [  ],
-"loop": true,
-"name": "focused",
+"loop": false,
+"name": "Disabled",
 "speed": 0.0
 }, {
 "frames": [  ],
-"loop": true,
-"name": "default",
+"loop": false,
+"name": "Default",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "Enabled",
 "speed": 0.0
 } ]
 
-[node name="ActionMenuItem" type="Node2D"]
+[node name="ActionMenuItem" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -39,9 +44,5 @@ audio_bus_override = false
 audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
-
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
-
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]
 
 

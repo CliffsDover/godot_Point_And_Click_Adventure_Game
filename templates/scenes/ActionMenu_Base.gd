@@ -4,6 +4,7 @@ extends Node2D
 # var a = 2
 # var b = "textvar"
 var focusedAction
+var enabledVerbs
 
 func _ready():
 	print( "[ActionMenu_Base] _ready")
@@ -15,14 +16,19 @@ func _process( delta ):
 	#print( "input" )
 	focusedAction = null
 	for item in get_children():
-		#print( "!!!" + owner.get_node( "HUD/Cursor/Area2D" ).name )
-		if item.get_node( "Area2D" ).overlaps_area( owner.get_node( "HUD/Cursor/Area2D" ) ):
-			#print( "[ActionMenu_Base] "  + item.actionName )
-			focusedAction = item.actionName	
-			item.SetState( 1 )
-		else:
-			item.SetState( 0 )
+		# check if current action is supported by the focused object
+		if enabledVerbs.has( item.actionName ):
+			if item.get_node( "Area2D" ).overlaps_area( owner.get_node( "HUD/Cursor/Area2D" ) ):
+				focusedAction = item.actionName	
+				item.SetState( 1 )
+			else:
+				item.SetState( 0 )
+		else: 
+			# current object is not supported by the focused object
+			# it should be shown as disabled
+			item.SetState( 2 )
 			
+	# show action + object only if the focused action is supported by the focused object
 	if focusedAction:
 		owner.SetInfoText( focusedAction + " " + owner.focusedObject.objectName ) 
 	else:
@@ -53,8 +59,9 @@ func Show( verbs ):
 		
 	for item in get_children():
 		if not verbs.has( item.actionName ):
+			#item.SetState( 2 )
 			print( item.actionName + " is disabled" )
-				
+	enabledVerbs = 	verbs		
 	visible = true
 	
 func Hide():

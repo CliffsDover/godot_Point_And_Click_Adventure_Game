@@ -9,17 +9,17 @@
 
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
-"loop": true,
+"loop": false,
 "name": "Disabled",
 "speed": 0.0
 }, {
 "frames": [ ExtResource( 3 ) ],
-"loop": true,
+"loop": false,
 "name": "Default",
 "speed": 0.0
 }, {
 "frames": [ ExtResource( 4 ) ],
-"loop": true,
+"loop": false,
 "name": "Enabled",
 "speed": 0.0
 } ]
