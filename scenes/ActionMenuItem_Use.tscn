@@ -5,7 +5,7 @@
 [ext_resource path="res://resources/images/ActionMenuItem/Use_Default.png" type="Texture" id=3]
 [ext_resource path="res://resources/images/ActionMenuItem/Use_Enabled.png" type="Texture" id=4]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
@@ -24,18 +24,18 @@ animations = [ {
 "speed": 0.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 58.6591, 56.7204 )
 
-[node name="ActionMenuItem" index="0" instance=ExtResource( 1 )]
+[node name="ActionMenuItem" instance=ExtResource( 1 )]
 
 actionName = "Use"
 
 [node name="AnimatedSprite" parent="." index="0"]
 
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "Default"
 
 [node name="Area2D" parent="." index="1"]
@@ -46,6 +46,6 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 

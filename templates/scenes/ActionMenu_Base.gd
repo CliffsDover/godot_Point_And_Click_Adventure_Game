@@ -16,6 +16,7 @@ func _process( delta ):
 	#print( "input" )
 	focusedAction = null
 	for item in get_children():
+		#print( item.actionName )
 		# check if current action is supported by the focused object
 		if enabledVerbs.has( item.actionName ):
 			if item.get_node( "Area2D" ).overlaps_area( owner.get_node( "HUD/Cursor/Area2D" ) ):
@@ -53,7 +54,7 @@ func Show( verbs ):
 	print( verbs )
 	set_process( true )
 	for item in get_children():
-		print( item )
+		print( item.actionName )
 		item.visible = true
 		item.get_node( "Area2D" ).monitorable = true
 		

@@ -5,4 +5,4 @@ extends "res://scenes/Object_Simple.gd"
 # var b = "textvar"
 
 func getAvailableVerbs():
-	return [ "Look At", "Pick Up"]
+	return [ "Look At", "Pick Up", "Talk To"]
