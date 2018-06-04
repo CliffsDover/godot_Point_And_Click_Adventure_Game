@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://templates/scenes/Object_Base.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Object_Window.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -9,6 +10,8 @@ radius = 54.0746
 height = 20.0
 
 [node name="Object" instance=ExtResource( 1 )]
+
+script = ExtResource( 2 )
 
 [node name="Area2D" parent="." index="1"]
 

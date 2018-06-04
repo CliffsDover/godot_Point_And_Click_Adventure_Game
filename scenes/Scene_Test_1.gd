@@ -21,8 +21,8 @@ func _ready():
 func ActionHandler( objects ):
 	print( "[ActionHandler]" )
 	print( objects[0] )
-	print( objects[1] )
-	if objects[0] == "Look At" and objects[1] == "Object":
+	print( objects[1].objectName )
+	if objects[0] == "Look At" and objects[1].name == "Object":
 		$Objects/Player.BeginDialog( Color( 1, 1, 1, 0.8 ) )
 		$Objects/Player.Say( "這是個有趣的東西", 0.05, "res://resources/audio/Player_2.ogg" )
 		$Objects/Player.Silence( 3 )
@@ -37,7 +37,7 @@ func ActionHandler( objects ):
 		$Objects/Player.ClearDialogBox()
 		
 		$Objects/Player.EndDialog()
-	elif objects[0] == "Look At" and objects[1] == "Key":
+	elif objects[0] == "Look At" and objects[1].name == "Key":
 		$Objects/Player.BeginDialog( Color( 0, 1, 1, 0.8 ) )
 		
 		$Objects/Player.Say( "某種有用的東東", 0.01, "res://resources/audio/Player_3.ogg" )
@@ -45,9 +45,11 @@ func ActionHandler( objects ):
 		$Objects/Player.ClearDialogBox()
 		
 		$Objects/Player.EndDialog()
-	elif objects[0] == "Look At" and objects[1] == "Window":
+	elif objects[0] == "Look At" and objects[1].name == "Window":
 		#$Objects/Player.WalkTo( $Objects/Window.position )	
 		get_tree().change_scene( "res://scenes/Scene_Hallway.tscn" )
+	elif objects[0] == "Walk To":
+		$Objects/Player.WalkTo( objects[1].position )	
 
 	
 

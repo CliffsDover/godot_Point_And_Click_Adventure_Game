@@ -5,6 +5,6 @@ extends "res://templates/scenes/Object_Base.gd"
 	#getAvailableVerbs()
 
 func getAvailableVerbs():
-	return [ "Look At", "Use", "Pick Up"]
+	return [ "Look At", "Use", "Pick Up", "Walk To"]
 
 

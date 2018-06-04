@@ -28,7 +28,7 @@ func _input(event):
 			if $HUD/ActionMenu.visible:
 				if $HUD/ActionMenu.focusedAction:
 					# trigger event
-					ActionHandler( [ $HUD/ActionMenu.focusedAction, focusedObject.name ] )
+					ActionHandler( [ $HUD/ActionMenu.focusedAction, focusedObject ] )
 					$HUD/ActionMenu.Hide()			
 				else:
 					# action canceled
@@ -43,7 +43,7 @@ func _input(event):
 					ShowInfoBar( false )
 			else: # show action menu
 				var verbs = focusedObject.getAvailableVerbs()
-				$HUD/ActionMenu.position = get_global_mouse_position()
+				#$HUD/ActionMenu.position = get_global_mouse_position()
 				#$HUD/ActionMenu.visible = true
 				$HUD/ActionMenu.focusedAction = null
 				$HUD/ActionMenu.Show( verbs )
