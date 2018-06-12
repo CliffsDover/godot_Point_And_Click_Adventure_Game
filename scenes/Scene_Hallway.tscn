@@ -1,18 +1,28 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://templates/scenes/Scene_Base.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Scene_Hallway.gd" type="Script" id=2]
 [ext_resource path="res://resources/images/Backgrounds/hallway.png" type="Texture" id=3]
 [ext_resource path="res://scenes/Object_VendingMachine.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/ActionMenu.tscn" type="PackedScene" id=5]
-[ext_resource path="res://resources/fonts/NotoSansCJKtc-Regular.otf" type="DynamicFontData" id=6]
+[ext_resource path="res://scenes/Object_VendingMachine.gd" type="Script" id=5]
+[ext_resource path="res://scenes/Character_Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Object_Door_To_Quarters.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Object_Door_To_Quarters.gd" type="Script" id=8]
+[ext_resource path="res://scenes/ActionMenu.tscn" type="PackedScene" id=9]
+[ext_resource path="res://resources/fonts/NotoSansCJKtc-Regular.otf" type="DynamicFontData" id=10]
+
+[sub_resource type="NavigationPolygon" id=2]
+
+vertices = PoolVector2Array( 841, 505, 970, 572, 4, 572, 833, 473, 768, 440, 724, 402, 299, 355, 284, 340, 359, 251, 644, 240, 714, 298, 736, 343, 84, 527, 249, 438, 4, 523, 32, 504, 298, 393, 499, 229 )
+polygons = [ PoolIntArray( 0, 1, 2 ), PoolIntArray( 3, 0, 2, 4 ), PoolIntArray( 5, 4, 2 ), PoolIntArray( 6, 7, 8 ), PoolIntArray( 9, 10, 11, 5, 2, 12, 13 ), PoolIntArray( 14, 15, 12, 2 ), PoolIntArray( 9, 13, 16, 17 ), PoolIntArray( 8, 17, 16, 6 ) ]
+outlines = [ PoolVector2Array( 32, 504, 84, 527, 249, 438, 298, 393, 299, 355, 284, 340, 359, 251, 499, 229, 644, 240, 714, 298, 736, 343, 724, 402, 768, 440, 833, 473, 841, 505, 970, 572, 4, 572, 4, 523 ) ]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 32
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 6 )
+font_data = ExtResource( 10 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Root" index="0" instance=ExtResource( 1 )]
@@ -25,18 +35,36 @@ position = Vector2( 512, 288 )
 scale = Vector2( 0.533333, 0.533333 )
 texture = ExtResource( 3 )
 
+[node name="Navigation2D" type="Navigation2D" parent="Backgrounds" index="1"]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Backgrounds/Navigation2D" index="0"]
+
+navpoly = SubResource( 2 )
+enabled = true
+
 [node name="VendingMachine" parent="Objects" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 933, 346 )
+script = ExtResource( 5 )
 objectName = "販賣機"
 
-[node name="ActionMenu" parent="HUD" index="0" instance=ExtResource( 5 )]
+[node name="Player" parent="Objects" index="1" instance=ExtResource( 6 )]
 
-_sections_unfolded = [ "Visibility" ]
+position = Vector2( 190.5, 555.5 )
+scale = Vector2( 2.85938, 2.85938 )
+objectName = "你"
 
-[node name="Dialogs" parent="HUD" index="1"]
+[node name="DoorToQuarters" parent="Objects" index="2" instance=ExtResource( 7 )]
 
-editor/display_folded = true
+position = Vector2( 31, 372 )
+script = ExtResource( 8 )
+objectName = "起居室"
+
+[node name="ActionMenu" parent="HUD" index="0" instance=ExtResource( 9 )]
+
+visible = false
+position = Vector2( 354, 189 )
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="InfoText" parent="HUD/InfoBar/CenterContainer" index="0"]
 

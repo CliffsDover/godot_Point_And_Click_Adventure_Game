@@ -13,9 +13,7 @@ func _ready():
 	#ShowInfoBar( false )
 	SetInfoText( "Scene 1" )
 	$Objects/Player.SetNavigation2D( $Backgrounds/Navigation2D )
-	#print( "[Scene_Test_1] _ready")
-	#print( Game.GetAllVerbs() )
-	#set_process_input( true )
+
 	
 	
 func ActionHandler( objects ):
@@ -47,7 +45,16 @@ func ActionHandler( objects ):
 		$Objects/Player.EndDialog()
 	elif objects[0] == "Look At" and objects[1].name == "Window":
 		#$Objects/Player.WalkTo( $Objects/Window.position )	
-		get_tree().change_scene( "res://scenes/Scene_Hallway.tscn" )
+		$Objects/Player.WalkTo( objects[1].position )
+		
+		yield( $Objects/Player, "walked_to_destination" )
+		
+		$Objects/Player.BeginDialog( Color( 0, 1, 1, 0.8 ) )
+		$Objects/Player.Say( "外面看起來很美", 0.01 )
+		$Objects/Player.Silence( 3 )			
+		$Objects/Player.ClearDialogBox()	
+		$Objects/Player.EndDialog()	
+		#get_tree().change_scene( "res://scenes/Scene_Hallway.tscn" )
 	elif objects[0] == "Walk To":
 		$Objects/Player.WalkTo( objects[1].position )	
 
@@ -87,4 +94,11 @@ func _draw():
 	for p in path:
 		draw_circle( p, 3, Color(1,0,0,1) )
 		
+		
+func ObjectHandler( object1, object2 ):
+	if object1.name == "Player" and object2.name == "Key":
+		print( "Entering hallway" )
+		get_tree().change_scene( "res://scenes/Scene_Hallway.tscn" )
+
+
 

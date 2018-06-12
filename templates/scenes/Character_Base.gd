@@ -11,6 +11,8 @@ enum FACING {
 	SOUTH_EAST,
 }
 
+signal walked_to_destination
+
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
@@ -70,6 +72,7 @@ func _process(delta):
 			$Sprite/AnimationPlayer.play( "idle_right" )
 		elif $Sprite/AnimationPlayer.current_animation == "walk_left":
 			$Sprite/AnimationPlayer.play( "idle_left" )
+		emit_signal( "walked_to_destination" )
 	
 func GetCurrentHeading( lookVector ):
 	print( lookVector.normalized() ) 

@@ -18,6 +18,9 @@ func _ready():
 	$HUD/Cursor/Area2D.connect( "area_exited", self, "on_Cursor_area_exited" )
 	#$HUD/ActionMenu.Hide()
 	#print( $HUD/ActionMenu/ActionMenuItem_LookAt.position ) 
+	for o in $Objects.get_children():
+		print( o.name )
+		o.get_node( "Area2D" ).connect( "area_entered", self, "on_object_area_entered", [o] )
 	
 func _process(delta):
 	$HUD/Cursor.position = get_global_mouse_position()
@@ -92,3 +95,11 @@ func GetDialogBox( pos ):
 func RemoveDialogBox( tie ):
 	$HUD/Dialogs.remove_child( tie )
 	tie.queue_free() 
+
+func on_object_area_entered( area, object ):
+	print( "[on_object_area_entered] " + area.get_parent().name + " " + object.name )
+	ObjectHandler( object, area.get_parent() )
+	
+	
+func _on_FPSTimer_timeout():
+	$HUD/FPSLabel.text = "FPS: " + str( Engine.get_frames_per_second() )	
